@@ -44,12 +44,11 @@ function App() {
         return
       }
       else {
-        // eslint-disable-next-line no-use-before-define
-        //const resultFn = Function('return ' + expression);
+        // eslint-disable-next-line 
+        const resultFn = Function('return ' + expression);
         
-        //const result = resultFn();
-        //eslint-disable-next-line 
-        const result=eval();
+        const result = resultFn();
+        //const result=eval();
         if (result === Infinity || result === -Infinity) {
           throw new Error('Cannot divide by zero');
         }
@@ -68,12 +67,12 @@ function App() {
 
 
   function evaluateFactorial() {
-    
-    // const resultFn = Function('return ' + expression.slice(0,-1));
-    // const n = resultFn();
+    //eslint-disable-next-line 
+     const resultFn = Function('return ' + expression.slice(0,-1));
+     const n = resultFn();
     
     //eslint-disable-next-line 
-    const n=eval(expression.slice(0,-1));
+    //const n=eval(expression.slice(0,-1));
     if (n >= 0) {
       //   let factorialString = "function factorial(n) { if (n === 0 || n === 1) { return 1; } else { return n * factorial(n-1); } }";
 

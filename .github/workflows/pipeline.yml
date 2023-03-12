@@ -1,6 +1,7 @@
 name: pipeline
 
 on:
+
   workflow_dispatch:
     branches:
       - main
@@ -39,8 +40,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Test
-        run: npm test
 
   test:
     needs: build
