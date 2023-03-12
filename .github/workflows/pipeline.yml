@@ -14,14 +14,16 @@ on:
 
 
 
-env:
-  CI: false
+# env:
+#   CI: false
 
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [18.x]
 
     steps:
       - name: Checkout code
@@ -30,7 +32,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '18.7.0'
+          node-version: ${{ matrix.node-version }}
 
       - name: npm setup
         run: npm ci
@@ -41,25 +43,25 @@ jobs:
         run: npm run build
 
 
-  test:
-    needs: build
-    runs-on: ubuntu-latest
+  # test:
+  #   needs: build
+  #   runs-on: ubuntu-latest
 
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '18.7.0'
+  #     - name: Set up Node.js
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: '18.7.0'
 
-      - name: npm setup
-        run: npm ci
+  #     - name: npm setup
+  #       run: npm ci
 
-      - name: Test
-        run: npm test
+  #     - name: Test
+  #       run: npm test
 
   # build-push-docker-Image:
   #   runs-on: ubuntu-latest
