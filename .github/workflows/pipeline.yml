@@ -3,8 +3,7 @@ name: pipeline
 on:
 
   workflow_dispatch:
-    branches:
-      - main
+   
   push:
     branches:
       - main
@@ -43,7 +42,7 @@ jobs:
         run: npm run build
 
 
-  test:
+  button-test:
     needs: build
     runs-on: ubuntu-latest
     strategy:
@@ -63,18 +62,42 @@ jobs:
         run: npm ci
 
 
-      - name: Test
-        run: npm test
+      - name: button Test
+        run: npm test devops-calculator/src/Buttons.test.js
+  functional-test:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: npm setup
+        run: npm ci
+
+
+      - name: functional  Test
+        run: npm test devops-calculator/src/App.test.js
+   
+
 
   build-push-docker-Image:
-    needs: test
+    needs: [button-test,functional-test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Build Docker image
-        run: docker build -t durgaprasad81/calculator-docker-image:latest
+        run: docker build -t durgaprasad81/calculator-docker-image:latest .
 
       - name: Log in to Docker registry
         uses: docker/login-action@v1

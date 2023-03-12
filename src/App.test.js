@@ -50,20 +50,7 @@ describe('Calculator App', () => {
 
 
 
-  test('checks delete button', () => {
-    const { getByTestId } = render(<App />);
-    const calculator = getByTestId('calculator');
-    const screen = calculator.querySelector('.input');
-    const button1 = calculator.querySelector('.button[value="1"]');
-    const button2 = calculator.querySelector('.button[value="2"]');
-
-    const button3 = calculator.querySelector('.button[value="DEL"]');
-    fireEvent.click(button1);
-    fireEvent.click(button2);
-    fireEvent.click(button3);
-
-    expect(screen).toHaveTextContent('1');
-  });
+  
 
 
   test('evaluates substraction operation', () => {

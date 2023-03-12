@@ -106,30 +106,29 @@ function App() {
     <div data-testid="calculator" className="calculator">
       <div className="input">{input}</div>
       <div className="row">
-        <button className="button" value="(" onClick={handleClick}>(</button>
-        <button className="button" value=")" onClick={handleClick}>)</button>
-        <button className="button" value="Math.PI" onClick={handleClick}>π</button>
-        <button className="button" value="Math.E" onClick={handleClick}>e</button>
+        <button className="button" id="open-bracket" value="(" onClick={handleClick}>(</button>
+        <button className="button" id="close-bracket" value=")" onClick={handleClick}>)</button>
+        <button className="button" id="pi" value="Math.PI" onClick={handleClick}>π</button>
+        <button className="button" id="exponent" value="Math.E" onClick={handleClick}>e</button>
+        <button className="button" id="factorial" value="!" onClick={handleClick}>!</button>
+
       </div>
       <div className="row">
-        <button className="button" value="Math.sqrt(" onClick={handleClick}>√</button>
-        <button className="button" value="Math.sin(" onClick={handleClick}>sin</button>
-        <button className="button" value="Math.cos(" onClick={handleClick}>cos</button>
-        <button className="button" value="Math.tan(" onClick={handleClick}>tan</button>
+        <button className="button" id="sin" value="Math.sin(" onClick={handleClick}>sin</button>
+        <button className="button" id="cos" value="Math.cos(" onClick={handleClick}>cos</button>
+        <button className="button" id="tan" value="Math.tan(" onClick={handleClick}>tan</button>
+        <button className="button" id="log" value="Math.log10(" onClick={handleClick}>log</button>
+        <button className="button" id="exponent" value="Math.exp(" onClick={handleClick}>exp</button>
+
       </div>
       <div className="row">
-        <button className="button" value="!" onClick={handleClick}>!</button>
-        <button className="button" value="Math.log10(" onClick={handleClick}>log</button>
-      </div>
-      <div className="row">
-        <button className="button" value="Math.exp(" onClick={handleClick}>exp</button>
-        <button className="button" value="Math.abs(" onClick={handleClick}>|x|</button>
-        <button className="button" value="Math.floor(" onClick={handleClick}>⌊x⌋</button>
-        <button className="button" value="Math.ceil(" onClick={handleClick}>⌈x⌉</button>
-      </div>
-      <div className="row">
-        <button className="button" value="Math.round(" onClick={handleClick}>round</button>
-        <button className="button" value="**" onClick={handleClick}>^</button>
+        <button className="button" id="absolute" value="Math.abs(" onClick={handleClick}>|x|</button>
+        <button className="button" id="floor" value="Math.floor(" onClick={handleClick}>⌊x⌋</button>
+        <button className="button" id="ceil" value="Math.ceil(" onClick={handleClick}>⌈x⌉</button>
+        <button className="button" id="sqrt" value="Math.sqrt(" onClick={handleClick}>√</button>
+
+        <button className="button" id="power" value="**" onClick={handleClick}>^</button>
+
       </div>
       <div className="row">
         <button className="button" value="7" onClick={handleClick}>7</button>

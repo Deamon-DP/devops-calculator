@@ -89,13 +89,21 @@ body {
   width: 33%;
 } */
 #add,#minus,#multiply,#divide,#mod{
-  background-color: #60e083;
+  background-color: #61b2d8;
   /* color: ; */
 
 }
 #delete,#clear{
-  background-color: red;
+  background-color: #ef476f;
 }
 
 
 
+#factorial,#power,#log,#pi,#sqrt,#exponent,#ceil,#floor,#absolute{
+  background-color: #13b3a3;
+  
+}
+#sin,#cos,#tan,#open-bracket,#close-bracket{
+  background-color: #13b3a3;
+  
+}
