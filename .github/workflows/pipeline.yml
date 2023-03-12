@@ -85,3 +85,16 @@ jobs:
 
       - name: Push Docker image
         run: docker push durgaprasad81/calculator-docker-image:latest
+  deploy:
+    needs: build-push-docker-Image
+    runs-on: self-hosted
+
+    steps:
+      - name: Pull Docker image
+        run: docker pull durgaprasad81/calculator-docker-image:latest
+      - name: Stop running calculator-docker-image
+        run: docker stop calculator-docker-image || true
+      - name: Start new container
+        run: docker run --name calculator-spe -d -p 3000:3000 durgaprasad81/calculator-docker-image:latest
+      - name: Clean up unused containers
+        run: docker system prune -af
