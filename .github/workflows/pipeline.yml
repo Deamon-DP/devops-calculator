@@ -1,4 +1,4 @@
-name: CI
+name: op-CI
 
 on:
   push:
@@ -8,9 +8,16 @@ on:
     branches:
       - main
 
+
+
+env:
+  CI: false
+
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
 
     steps:
       - name: Checkout code
