@@ -122,5 +122,9 @@ jobs:
         run : docker rm calculator-container || true
       - name: Start new container
         run: docker run --name calculator-container -d -p 3000:3000 durgaprasad81/calculator-docker-image:latest
+      - name: Sleep for 5 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '5s'
       - name: open the browser
         run: open "http://172.17.0.2:3000/"
