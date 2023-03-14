@@ -119,8 +119,8 @@ jobs:
       - name: Stop running calculator-container
         run: docker stop calculator-container || true
       - name: remove container named calculator-container
-        run : docker rm calculator-container
+        run : docker rm calculator-container || true
       - name: Start new container
         run: docker run --name calculator-container -d -p 3000:3000 durgaprasad81/calculator-docker-image:latest
-      - name: Clean up unused containers
-        run: docker system prune -af
+      - name: open the browser
+        run: open "http://172.17.0.2:3000/"
