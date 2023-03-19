@@ -35,8 +35,8 @@ jobs:
 
       - name: npm setup
         run: npm ci
-
-
+      - name: install axios package
+        run: npm install axios
 
       - name: Build
         run: npm run build
