@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import './App.css';
-
+// import log from './log'
+import axios from "axios";
+class log{
+  constructor(time,expression,result)
+  {
+      this.time=time
+      this.expression=expression
+      this.result=result
+  }
+}
 function App() {
 
   const [input, setInput] = useState("0");
@@ -33,7 +42,16 @@ function App() {
     }
   }
 
+  const sendLogs= async (expression,result) => {  
+  const logs = new log(new Date(),expression,result);
+  console.log(logs);
 
+     axios.post("http://localhost:5000/",logs)
+.then(function (response) {
+  console.log(response);
+
+})
+}
 
   function calculateResult() {
     try {
@@ -52,9 +70,12 @@ function App() {
         if (result === Infinity || result === -Infinity) {
           throw new Error('Cannot divide by zero');
         }
+        
+        sendLogs(expression,result);
         setInput(result);
       }
     } catch (error) {
+      sendLogs(expression,"ERROR");
       setInput('Error');
     }
   }
