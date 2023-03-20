@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 // import log from './log'
-import axios from "axios";
+// import axios from "axios";
 class log{
   constructor(time,expression,result)
   {
@@ -42,15 +42,21 @@ function App() {
     }
   }
 
-  const sendLogs= async (expression,result) => {  
+  const sendLogs=  (expression,result) => {  
   const logs = new log(new Date(),expression,result);
-  console.log(logs);
+    console.log(logs);
 
-     axios.post("http://localhost:5000/",logs)
-.then(function (response) {
-  console.log(response);
+//      axios.post("http://localhost:5000/",logs)
+// .then(function (response) {
+//   console.log(response);
 
-})
+// })
+
+fetch("http://localhost:5000/", {
+  method: 'post',
+  headers: {'Content-Type':'application/json'},
+  body:  JSON.stringify(logs)
+ });
 }
 
   function calculateResult() {
