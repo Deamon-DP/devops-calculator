@@ -78,10 +78,12 @@ fetch("http://localhost:5000/", {
         }
         
         sendLogs(expression,result);
+        setExpression(result)
         setInput(result);
       }
     } catch (error) {
       sendLogs(expression,"ERROR");
+      setExpression('0');
       setInput('Error');
     }
   }
