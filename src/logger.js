@@ -4,20 +4,22 @@ const bodyParser = require('body-parser');
 const app = express();
 const cors=require("cors")
 // Initialize Winston logger
+class log{
+  constructor(time,expression,result)
+  {
+      this.time=time
+      this.expression=expression
+      this.result=result
+  }
+}
 const logger = winston.createLogger({
-  level: 'info',
+  
   transports: [
     new winston.transports.Console(),
     new winston.transports.File({ filename: 'logs.json' })
   ]
 });
 
-// Middleware to log incoming requests
-// app.use((req, res, next) => {
-//     console.log(req.body);
-//   logger.info(`${req.method} ${req.body}`);
-//   next();
-// });
 
 app.use(express.json());
 
@@ -28,7 +30,16 @@ app.use(cors
     }));
 app.post('/', (req, res) => {
     console.log('Got body:', req.body);
-    logger.info(req.body);
+    
+    console.log(req.body.result);
+    if(req.body.result ==='ERROR')
+    {
+      logger.level='error';
+      logger.error(req.body);
+    }
+    else{
+      logger.info(req.body);
+    }
     res.send("hello");
 });
 // Start server
