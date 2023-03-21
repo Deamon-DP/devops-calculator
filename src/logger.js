@@ -1,24 +1,59 @@
 const express = require('express');
-const winston = require('winston');
+const winston =require('winston')
 const bodyParser = require('body-parser');
 const app = express();
 const cors=require("cors")
+
+
+
+
+
+
 // Initialize Winston logger
-class log{
-  constructor(time,expression,result)
-  {
-      this.time=time
-      this.expression=expression
-      this.result=result
-  }
-}
-const logger = winston.createLogger({
+
+// const logger = winston.createLogger({
   
-  transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({ filename: 'logs.json' })
-  ]
-});
+//   transports: [
+//     new winston.transports.Console(),
+//     new winston.transports.File({ filename: 'logs.json' })
+//   ]
+
+  
+// });
+
+// const { format, createLogger, transports } = require("winston");
+// const { combine, timestamp, label, printf, prettyPrint } = format;
+// const CATEGORY = "winston custom format";
+
+// const logger = createLogger({
+//   level: "debug",
+  
+//   format: combine(
+//     label({ label: CATEGORY }),
+//     format.json(),
+//     timestamp({
+//       format: "MMM-DD-YYYY HH:mm:ss",
+//     }),
+//     prettyPrint()
+//   ),
+//   transports: [new winston.transports.File({ filename: 'logs.json',
+//   format: winston.format.json()})],
+// });
+const pino = require('pino');
+const fs = require('fs');
+
+const data = { "foo": 'bar',"ia": "m" };
+
+// create a writable stream to a file
+const dest = pino.destination('logs.json');
+
+// create a logger
+const logger = pino({   timestamp: false
+}, dest);
+
+// write the JSON object to the file
+
+// close the stream when finished
 
 
 app.use(express.json());
@@ -31,10 +66,9 @@ app.use(cors
 app.post('/', (req, res) => {
     console.log('Got body:', req.body);
     
-    console.log(req.body.result);
+    // console.log(req.body.result);
     if(req.body.result ==='ERROR')
     {
-      logger.level='error';
       logger.error(req.body);
     }
     else{
@@ -45,8 +79,5 @@ app.post('/', (req, res) => {
 // Start server
 app.listen(5000, () => {
 });
-
-
-
 
 

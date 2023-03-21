@@ -26,7 +26,22 @@ create and deploy a scientific calculator with the following operations.
 \
 9.  Exponential - $\exp^x$
 
-# 2 Tools Used
+# 2 Repositories
+
+  * `Github Repository` -[devops-calculator](https://github.com/Deamon-DP/devops-calculator)
+
+  * `Docker Repository` -[calculator-docker-image](https://hub.docker.com/repository/docker/durgaprasad81/calculator-docker-image/general)
+
+\
+
+  ![Calculator APP](calculator.png "calculator"){width=50%}
+
+
+
+\pagebreak
+
+
+# 3 Tools Used
 
 * **Programming Language**: `Javascript`
   *  **Node** -`Node.js` is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser.
@@ -56,8 +71,8 @@ create and deploy a scientific calculator with the following operations.
   
 \pagebreak
 
-# 3 Development Setup:
-## 3.1 setup development enironment:
+# 4 Development Setup:
+## 4.1 setup development enironment:
 * Update packages
   ```bash
    $ sudo apt-get update
@@ -97,7 +112,7 @@ create and deploy a scientific calculator with the following operations.
    $ npm start
   
   ```
-## 3.2 Source Code Management Setup:
+## 4.2 Source Code Management Setup:
     $~~~~~~$Source code management (SCM) is used to track  modifications to a source code repository. SCM  tracks a running history of changes to a code base and helps resolve conflicts when merging updates from multiple contributors. SCM is also synonymous with Version control. 
 
     As software projects grow in lines of code and contributor head count, the costs of communication overhead and management complexity also grow. SCM is a critical tool to alleviate the organizational strain of growing development costs.This is accomplished with `GitHub`.
@@ -136,7 +151,7 @@ create and deploy a scientific calculator with the following operations.
   ![Github Repository](github_repo.png "Github Repository")
 
 
-## 3.3 Docker and Docker Hub:
+## 4.3 Docker and Docker Hub:
 
  Docker is a set of platform as a service (PaaS) products that use OS-level virtualization
  to deliver software in packages called `containers`.Basically it is a utility to pack, ship and run any application as a lightweight container.Using Docker, you can quickly deploy and scale applications into any environment and know your code will run.
@@ -146,7 +161,7 @@ create and deploy a scientific calculator with the following operations.
 
   ![Create Dockerhub Repository](create-docker-repo.png "Create docker Repository")
 
-## 3.4 CI/CD Pipeline Setup:
+## 4.4 CI/CD Pipeline Setup:
 
 CI/CD falls under DevOps (the joining of development and operations teams) and combines the practices of continuous integration and continuous delivery. CI/CD automates much or all of the manual human intervention traditionally needed to get new code from a commit into production, encompassing the build, test (including integration tests, unit tests, and regression tests), and deploy phases, as well as infrastructure provisioning.
  
@@ -184,7 +199,7 @@ In your working directory, create a pipeline.yml file with the following directo
 
 
 
-### 3.4.1 Build and Test:
+### 4.4.1 Build and Test:
   * **Build:**  
   Build project is typically compiled, optimized, and bundled into a single file or a set of files that can be easily deployed to a server or hosting environment. The build process can involve various steps such as transpiling TypeScript or ES6+ code into ES5 JavaScript, minifying and optimizing the code, and generating a package that includes all the project dependencies.
   ```yml
@@ -262,7 +277,7 @@ button-test:
 ```
   *  npm test devops-calculator/src/App.test.js this command will test all the functionalities in calculator app.
 
-### 3.4.2 Containerize and Publish to DockerHub:
+### 4.4.2 Containerize and Publish to DockerHub:
 
 A `Docker container` is a lightweight, standalone executable package that contains all the software and dependencies required to run an application. It is a virtualized environment that provides an isolated space for an application to run on any operating system or infrastructure without affecting the host system.
 
@@ -305,7 +320,7 @@ The Docker User name and Password can be saved as shown below
 ![select Secret variables](security.png "security-ket"){width=30% height=50%}
   ![set secret variables](docker_security.png "security-ket"){width=70% height=50%}
 
-### 5.4.3 Deployment:
+### 4.4.3 Deployment:
 
  It is a software development approach that automates the software build, testing, and deployment processes, enabling developers to release code changes more frequently and reliably.
 
@@ -362,7 +377,7 @@ The Docker User name and Password can be saved as shown below
   * waits for 5 seconds.
   * opens the browser with url `http://172.17.0.2:3000/`
 
-### 3.4.4 Pipeline
+### 4.4.4 Pipeline
 
   * Pushing new changes to master branch will trigger the pipeline that we have setup `Build and {ButtonTest , FunctionalTest} → Publish → Deploy`
 
@@ -389,3 +404,36 @@ The Docker User name and Password can be saved as shown below
   * **Deploying**
 \
       ![deploy](deploy.png "publish"){width=70%}
+
+
+## 4.5 Monitoring Tool: ELK Stack
+
+“ELK” is the acronym for three open source projects:Elasticsearch, Logstash,
+and Kibana.ELK stack gives us the ability to aggregate logs from all the systems and
+applications, analyze these logs, and create visualizations for application and
+infrastructure monitoring, faster troubleshooting, security analytics, and more.
+Kibana Visualization of log-file using - GROK pattern to decode logging mes-
+sages.
+
+#### Grok Pattern
+
+\
+
+```c
+\{%{QUOTEDSTRING:field}:%{INT:level},
+%{QUOTEDSTRING:field2}:%{INT:pid},
+%{QUOTEDSTRING:field4}:%{QUOTEDSTRING:hostname},
+%{QUOTEDSTRING:field7}:"%{TIMESTAMP_ISO8601:timestamp}",
+%{QUOTEDSTRING:field8}:%{QUOTEDSTRING:expression},
+%{QUOTEDSTRING:field10}:%{QUOTEDSTRING:result}\}
+
+```
+\
+
+  ![import](index.png "publish"){width=70%}
+
+\
+
+  ![results](results.png "result"){width=70%}
+
+

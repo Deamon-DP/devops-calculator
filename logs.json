@@ -1,0 +1,13 @@
+
+{"level":30,"pid":50693,"hostname":"dp","time":"2023-03-21T13:16:43.069Z","expression":"99*6","result":"594"}
+{"level":30,"pid":50693,"hostname":"dp","time":"2023-03-21T13:17:06.567Z","expression":"594-3","result":"591"}
+{"level":30,"pid":50693,"hostname":"dp","time":"2023-03-21T13:18:01.170Z","expression":"3966*3","result":"11898"}
+{"level":50,"pid":51236,"hostname":"dp","time":"2023-03-21T13:20:09.280Z","expression":"66Math.ceil(","result":"ERROR"}
+{"level":50,"pid":51236,"hostname":"dp","time":"2023-03-21T13:20:29.638Z","expression":"Math.ceil(*6","result":"ERROR"}
+{"level":30,"pid":51236,"hostname":"dp","time":"2023-03-21T13:20:33.582Z","expression":"6*3","result":"18"}
+{"level":30,"pid":51236,"hostname":"dp","time":"2023-03-21T13:20:36.822Z","expression":"18%3","result":"0"}
+{"level":30,"pid":51236,"hostname":"dp","time":"2023-03-21T13:20:41.972Z","expression":"0*5","result":"0"}
+{"level":30,"pid":51236,"hostname":"dp","time":"2023-03-21T13:20:47.716Z","expression":"033+4","result":"31"}
+{"level":30,"pid":51236,"hostname":"dp","time":"2023-03-21T13:20:53.300Z","expression":"Math.sqrt(9)","result":"3"}
+{"level":50,"pid":51236,"hostname":"dp","time":"2023-03-21T13:20:56.506Z","expression":"3Math.exp(Math.log10(","result":"ERROR"}
+
