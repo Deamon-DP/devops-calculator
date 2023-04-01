@@ -45,7 +45,7 @@ const fs = require('fs');
 const data = { "foo": 'bar',"ia": "m" };
 
 // create a writable stream to a file
-const dest = pino.destination('logs.json');
+const dest = pino.destination('public/logs.json');
 
 // create a logger
 const logger = pino({   timestamp: false

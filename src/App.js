@@ -43,7 +43,7 @@ function App() {
   }
 
   const sendLogs=  (expression,result) => {  
-  const logs = new log(new Date(),expression,result);
+  const logs = new log(new Date(),expression,String(result));
     console.log(logs);
 
 //      axios.post("http://localhost:5000/",logs)
@@ -55,7 +55,7 @@ function App() {
 fetch("http://localhost:5000/", {
   method: 'post',
   headers: {'Content-Type':'application/json'},
-  body:  JSON.stringify(logs)
+  // body:  JSON.stringify(logs)
  });
 }
 
