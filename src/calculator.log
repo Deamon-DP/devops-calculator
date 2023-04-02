@@ -1,5 +1,1 @@
-{"level":30,"pid":128200,"hostname":"dp","time":"2023-04-02T01:35:20.682Z","expression":"99*3","result":"297"}
-{"level":30,"pid":128200,"hostname":"dp","time":"2023-04-02T01:35:24.499Z","expression":"297*2","result":"594"}
-{"level":50,"pid":128200,"hostname":"dp","time":"2023-04-02T01:35:31.967Z","expression":"Math.sqrt(99","result":"ERROR"}
-{"level":30,"pid":128200,"hostname":"dp","time":"2023-04-02T01:35:39.909Z","expression":"Math.sqrt(66)","result":"8.12403840463596"}
-{"level":30,"pid":128200,"hostname":"dp","time":"2023-04-02T01:35:45.885Z","expression":"66*4","result":"264"}
+
