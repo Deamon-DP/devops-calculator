@@ -17,7 +17,6 @@ function App() {
   const [input, setInput] = useState("0");
   const [expression, setExpression] = useState('');
 
-  const[zero,setZero]=useState('');
 
   function handleClick(event) {
     const value = event.target.value;
@@ -50,7 +49,6 @@ function App() {
         setExpression(value);
       }
 
-      setZero(value);
     }
   }
 
