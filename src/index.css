@@ -20,6 +20,7 @@ body {
   background: transparent;
   padding: 20px;
   width: 400px;
+  position:  relative;
 }
 
 .input{
@@ -108,4 +109,25 @@ body {
 #sin,#cos,#tan,#open-bracket,#close-bracket{
   background-color: #13b3a3;
   
+}
+
+.download-button {
+  background-color: #13b3a3; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 4px 2px;
+  cursor: pointer;
+  
+  position: absolute;
+  transform: translate(14%, 100%) translateX(25px);
+
+}
+
+.download-button:hover {
+  background-color: #ef476f;
 }

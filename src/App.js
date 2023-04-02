@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import './App.css';
 // import log from './log'
 // import axios from "axios";
+
+import data from './calculator.log';
+
 class log{
   constructor(time,expression,result)
   {
@@ -51,12 +54,17 @@ function App() {
 //   console.log(response);
 
 // })
-
+try{
 fetch("http://localhost:5000/", {
   method: 'post',
   headers: {'Content-Type':'application/json'},
-  // body:  JSON.stringify(logs)
+  body:  JSON.stringify(logs)
  });
+
+}
+catch(error)
+{
+ console.log(error);}
 }
 
   function calculateResult() {
@@ -130,8 +138,25 @@ fetch("http://localhost:5000/", {
     setInput(prevInput => prevInput.slice(0, -1));
   }
 
+  function handleDownloadClick() {
+    fetch(data)
+      .then(response => response.blob())
+      .then(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'data.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+  }
+  
+
 
   return (
+    <div>
     <div data-testid="calculator" className="calculator">
       <div className="input">{input}</div>
       <div className="row">
@@ -190,6 +215,10 @@ fetch("http://localhost:5000/", {
         <button className="equals-button" id="equals" value="=" onClick={handleClick}>=</button>
 
       </div>
+      <div>
+    <button className="download-button" onClick={handleDownloadClick}>Download Logs</button>
+    </div>
+    </div>
 
     </div>
   );

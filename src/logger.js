@@ -42,10 +42,9 @@ const cors=require("cors")
 const pino = require('pino');
 const fs = require('fs');
 
-const data = { "foo": 'bar',"ia": "m" };
 
 // create a writable stream to a file
-const dest = pino.destination('public/logs.json');
+const dest = pino.destination('./src/calculator.log');
 
 // create a logger
 const logger = pino({   timestamp: false
@@ -74,7 +73,7 @@ app.post('/', (req, res) => {
     else{
       logger.info(req.body);
     }
-    res.send("hello");
+    // res.send("hello");
 });
 // Start server
 app.listen(5000, () => {

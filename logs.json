@@ -11,3 +11,8 @@
 {"level":30,"pid":51236,"hostname":"dp","time":"2023-03-21T13:20:53.300Z","expression":"Math.sqrt(9)","result":"3"}
 {"level":50,"pid":51236,"hostname":"dp","time":"2023-03-21T13:20:56.506Z","expression":"3Math.exp(Math.log10(","result":"ERROR"}
 
+{"level":30,"pid":107086,"hostname":"dp","time":"2023-04-02T00:16:54.856Z","expression":"99*3","result":"297"}
+{"level":30,"pid":107086,"hostname":"dp","time":"2023-04-02T00:22:25.873Z","expression":"88/3","result":"29.333333333333332"}
+{"level":30,"pid":107086,"hostname":"dp","time":"2023-04-02T00:25:31.496Z","expression":"99*6","result":"594"}
+{"level":30,"pid":107086,"hostname":"dp","time":"2023-04-02T00:33:41.988Z","expression":"59499/3","result":"19833"}
+{"level":30,"pid":107086,"hostname":"dp","time":"2023-04-02T00:36:40.897Z","expression":"66/3","result":"22"}
