@@ -42,7 +42,6 @@ function App() {
       {
 
         setExpression(prevExpression => prevExpression + value);
-**
         setInput(prevInput => prevInput + value);
 
       }
