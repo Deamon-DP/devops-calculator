@@ -114,5 +114,97 @@ describe('Calculator App', () => {
     expect(calculator).toHaveTextContent('3');
   });
 
+  test('evaluates exception square-root operation', () => {
+    const { getByTestId } = render(<App />);
+    const calculator = getByTestId('calculator');
+    const screen = calculator.querySelector('.input');
+    const button1 = calculator.querySelector('.button[value="Math.sqrt("]');
+    const button2 = calculator.querySelector('.button[value="-"]');
+
+    const button3 = calculator.querySelector('.button[value="1"]');
+    const button4 = calculator.querySelector('.button[value=")"]');
+
+    const equalsButton = calculator.querySelector('.equals-button[value="="]');
+    fireEvent.click(button1);
+    fireEvent.click(button2);
+    fireEvent.click(button3);
+    fireEvent.click(button4);
+
+    fireEvent.click(equalsButton);
+    expect(calculator).toHaveTextContent('NaN');
+  });
+
+  test('evaluates factorial function', () => {
+    const { getByTestId } = render(<App />);
+    const calculator = getByTestId('calculator');
+    const screen = calculator.querySelector('.input');
+
+    const button1 = calculator.querySelector('.button[value="0"]');
+    const button2 = calculator.querySelector('.button[value="!"]');
+
+    const equalsButton = calculator.querySelector('.equals-button[value="="]');
+    fireEvent.click(button1);
+    fireEvent.click(button2);
+
+    fireEvent.click(equalsButton);
+    expect(calculator).toHaveTextContent('1');
+  });
+
+  test('evaluates exception in factorial', () => {
+    const { getByTestId } = render(<App />);
+    const calculator = getByTestId('calculator');
+    const screen = calculator.querySelector('.input');
+    const button1 = calculator.querySelector('.button[value="-"]');
+
+    const button2 = calculator.querySelector('.button[value="1"]');
+    const button3 = calculator.querySelector('.button[value="!"]');
+
+    const equalsButton = calculator.querySelector('.equals-button[value="="]');
+    fireEvent.click(button1);
+    fireEvent.click(button2);
+    fireEvent.click(button3);
+
+    fireEvent.click(equalsButton);
+    expect(calculator).toHaveTextContent('Error');
+  });
+
+
+  test('evaluates exception in factorial', () => {
+    const { getByTestId } = render(<App />);
+    const calculator = getByTestId('calculator');
+    const screen = calculator.querySelector('.input');
+    const button1 = calculator.querySelector('.button[value="0"]');
+
+    const button2 = calculator.querySelector('.button[value="!"]');
+
+    const equalsButton = calculator.querySelector('.equals-button[value="="]');
+    fireEvent.click(button1);
+    fireEvent.click(button2);
+
+    fireEvent.click(equalsButton);
+    expect(calculator).toHaveTextContent('1');
+  });
+
+
+  test('evaluates power function', () => {
+    const { getByTestId } = render(<App />);
+    const calculator = getByTestId('calculator');
+    const screen = calculator.querySelector('.input');
+    const button1 = calculator.querySelector('.button[value="2"]');
+
+    const button2 = calculator.querySelector('.button[value="**"]');
+    const button3 = calculator.querySelector('.button[value="3"]');
+
+
+    const equalsButton = calculator.querySelector('.equals-button[value="="]');
+    fireEvent.click(button1);
+    fireEvent.click(button2);
+
+    fireEvent.click(equalsButton);
+    expect(calculator).toHaveTextContent('1');
+  });
+
+
+
 
 });
